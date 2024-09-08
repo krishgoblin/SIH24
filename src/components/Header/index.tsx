@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Row, Col, Drawer } from "antd";
 import { withTranslation, TFunction } from "react-i18next";
+import { useHistory } from "react-router-dom"; // Use useHistory for v5
 import Container from "../../common/Container";
 import { SvgIcon } from "../../common/SvgIcon";
 import { Button } from "../../common/Button";
@@ -18,36 +19,32 @@ import {
 
 const Header = ({ t }: { t: TFunction }) => {
   const [visible, setVisibility] = useState(false);
+  const history = useHistory(); // Initialize useHistory
 
   const toggleButton = () => {
     setVisibility(!visible);
   };
 
   const MenuItem = () => {
-    const scrollTo = (id: string) => {
-      const element = document.getElementById(id) as HTMLDivElement;
-      element.scrollIntoView({
-        behavior: "smooth",
-      });
+    const navigateTo = (path: string) => {
+      history.push(path); // Use history.push to navigate in v5
       setVisibility(false);
     };
+
     return (
       <>
-        <CustomNavLinkSmall onClick={() => scrollTo("about")}>
-          <Span>{t("About")}</Span>
+        <CustomNavLinkSmall onClick={() => navigateTo("/gigpath-pro")}>
+          <Span>{t("Gigpath Pro")}</Span>
         </CustomNavLinkSmall>
-        <CustomNavLinkSmall onClick={() => scrollTo("mission")}>
-          <Span>{t("Mission")}</Span>
-        </CustomNavLinkSmall>
-        <CustomNavLinkSmall onClick={() => scrollTo("product")}>
-          <Span>{t("Product")}</Span>
+        <CustomNavLinkSmall onClick={() => navigateTo("/community")}>
+          <Span>{t("Community")}</Span>
         </CustomNavLinkSmall>
         <CustomNavLinkSmall
           style={{ width: "180px" }}
-          onClick={() => scrollTo("contact")}
+          onClick={() => navigateTo("/signup-login")}
         >
           <Span>
-            <Button>{t("Contact")}</Button>
+            <Button>{t("Signup | Login")}</Button>
           </Span>
         </CustomNavLinkSmall>
       </>
