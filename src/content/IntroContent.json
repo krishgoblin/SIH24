@@ -1,13 +1,16 @@
 {
-  "title": "Landing page template for developers & startups",
-  "text": "Beautifully designed templates using React.js, ant design and styled-components! Save weeks of time and build your landing page in minutes.",
+  "title": "Global Talent, Local Impact with Freelancers ",
+  "text": "Connecting You With Experts To Drive Success, One Project at a Time.",
   "button": [
     {
-      "title": "Explore"
+      "title": "For Makers",
+      "path": "/for-makers"
     },
     {
-      "title": "Learn more",
-      "color": "#fff"
+      "title": "For Clients",
+      "color": "#fff",
+      "path": "/for-clients"
+
     }
   ]
 }
